@@ -36,7 +36,6 @@ while True:
 
     center_x, center_y = np.mean(shape_2d, axis=0).astype(np.int) # 모든 특징점의 평균을 구해 얼굴의 중심 구하기. 소수점일수도 있으니 정수형으로 변환
 
-    result = overlay_transparent(original, overlay, center_x, center_y, overlay_size=(face_size, face_size))
 
     # visualize
     img = cv2.rectangle(img, pt1=(face.left(), face.top()), pt2=(face.right(), face.bottom()), color = (255,255,255), # 직사각형 그리기. 좌상단 : face.left(), face.top(), 우하단 : face.right(), face.bottom()
@@ -55,7 +54,6 @@ while True:
 
 
     cv2.imshow('img', img) # img라는 윈도우에 img 띄우기
-    cv2.imshow('result',result)
     k = cv2.waitKey(1) & 0xFF # 1밀리 세컨드만큼 대기.
     if k == 27:
         break
